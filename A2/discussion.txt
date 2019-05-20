@@ -1,0 +1,6 @@
+We will not have starvation in this assignment using this monitor. But, in real-world scenariom where infinite cars keep arriving and adding to one lane. When a car is crossing the quad, the quad will be locked. Right after this car crossed the quad, one more car enters to the buffer of this lane. Then, the system will choose the head car of a random lane to cross the quad. Therefore, it is possible that the system always keeps one lane awaiting, so that the cars on this lane would wait indefinitely, then starvations occurs in the cross stage. 
+Then the buffer is always full, which means the capacity is reached. So, the pthread_cond_wait() would wait indefinitely for consumers to cross, if it was never signaled. This will be the starvation of the arrival. 
+These kinds of starvation can be avoided by using better scheduling schema such as round robin like approach.
+
+
+
